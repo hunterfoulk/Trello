@@ -39,11 +39,14 @@ export default function Navbar({ getTasks, setTasks, tasks }) {
     console.log(users);
 
     await axios
-      .post("http://localhost:5000/trello/tasks", {
-        starter,
-        users,
-        task: task,
-      })
+      .post(
+        "https://elegant-haibt-a61338.netlify.app/.netlify/functions/server/trello/tasks",
+        {
+          starter,
+          users,
+          task: task,
+        }
+      )
       .then((res) => {
         console.log("response", res);
         console.log("task sent to database");
